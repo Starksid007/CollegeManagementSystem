@@ -31,4 +31,8 @@ public class StudentService {
 	public void deleteStudent(Integer id) {
 		stuFetch.deleteById(id);
 	}
+	
+	public void truncateTable() {
+		stuFetch.deleteAll();
+	}
 }

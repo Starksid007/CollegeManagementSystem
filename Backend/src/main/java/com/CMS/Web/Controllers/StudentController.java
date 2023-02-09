@@ -34,9 +34,8 @@ public class StudentController {
 	}
 
 	@PostMapping(path = "students")
-	public Student saveStudent(@RequestBody Student student) {
+	public void saveStudent(@RequestBody Student student) {
 		stuService.saveStudent(student);
-		return student;
 	}
 
 	@DeleteMapping(path = "students/{id}")
@@ -48,5 +47,10 @@ public class StudentController {
 	public Student updateStudent(@RequestBody Student student) {
 		stuService.saveStudent(student);
 		return student;
+	}
+	
+	@GetMapping(path="students/truncate")
+	public void truncateTable() {
+		stuService.truncateTable();
 	}
 }
