@@ -30,10 +30,10 @@ a {
     text-align: center;
   }
   #submit-btn {
-    background-color:#2dbd6e;
+    background-color:#04AA6D;
     border: none;
     border-radius: 21px;
-    box-shadow: 0px 1px 8px #24c64f;
+    box-shadow: 0px 1px 8px #04AA6D;
     cursor: pointer;
     color: white;
     font-family: "Raleway SemiBold", sans-serif;
@@ -44,7 +44,7 @@ a {
     width: 153px;
   }
   #submit-btn:hover {
-    box-shadow: 0px 1px 18px #24c64f;
+    box-shadow: 0px 1px 18px #04AA6D;
   }
   .form {
     align-items: left;
@@ -52,7 +52,7 @@ a {
     flex-direction: column;
   }
   .form-border {
-    background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
+    background: -webkit-linear-gradient(right, #2ec06f,#04AA6D);
     height: 1px;
     width: 100%;
   }
@@ -63,7 +63,7 @@ a {
     padding-top: 14px;
   }
   .underline-title {
-    background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
+    background: -webkit-linear-gradient(right,#2ec06f ,#04AA6D);
     height: 2px;
     margin: -1.1rem auto 0 auto;
     width: 89px;
@@ -71,48 +71,48 @@ a {
 
 
 
-  select {
-    -webkit-appearance:none;
+  .loginSelect {
+    /* -webkit-appearance:none;
     -moz-appearance:none;
     -ms-appearance:none;
-    appearance:none;
+    appearance:none; */
     outline:0;
     box-shadow:none;
     border:0!important;
-    background: #2ec06f;
-    background-image: none;
-    flex: 1;
+    /* background-color: #04AA6D !important; */
+    /* flex: 1; */
     padding:0.5rem;
     color:#fff;
     cursor:pointer;
     font-size: 1em;
     font-family: 'Open Sans', sans-serif;
  }
- select::-ms-expand {
+ .loginSelect::-ms-expand {
     display: none;
  }
- .select {
+ .loginSelect {
     position: relative;
     display: flex;
-    width: 15em;
+    /* width: 15em; */
     height: 2em;
     line-height: 2;
-    background: #2ec06f;
+    /* background-color: #04AA6D !important; */
     overflow: hidden;
     border-radius: .25em;
+    color:white !important;
  }
- .select::after {
+ .loginSelect::after {
     content: '\25BC';
     position: absolute;
     top: 0;
     right: 0;
     padding: 0 1em;
-    background: #2ec06f;
+    /* background: #04AA6D !important; */
     cursor:pointer;
     pointer-events:none;
     transition:0.5s all ease;
     color:white;
  }
- .select:hover::after {
+ .loginSelect:hover::after {
     color:black;
  }

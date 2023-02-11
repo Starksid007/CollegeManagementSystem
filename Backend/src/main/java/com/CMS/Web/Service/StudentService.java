@@ -24,11 +24,11 @@ public class StudentService {
 		stuFetch.save(student);
 	}
 
-	public Student getStudent(Integer id) {
+	public Student getStudent(String id) {
 		return stuFetch.findById(id).get();
 	}
 
-	public void deleteStudent(Integer id) {
+	public void deleteStudent(String id) {
 		stuFetch.deleteById(id);
 	}
 	

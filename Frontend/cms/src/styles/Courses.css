@@ -1,0 +1,71 @@
+ul {
+    list-style-type: none;
+    margin: 10px;
+    margin-top: 10px;
+    padding: 0;
+    width: 20%;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  li{
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  li.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  li:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+
+  .mainRight{
+    margin-left: 22%;
+    margin-top: 20px;
+    box-sizing: border-box;
+  }
+
+  .courseColumn {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding in columns */
+  .courseRow {
+    height: 500px;
+    overflow-y: scroll;
+    margin: 0 -5px;
+}
+  
+  /* Clear floats after the columns */
+  .courseRow:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Style the counter cards */
+  .courseCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 8px;
+    margin:10px;
+    text-align: center;
+    background-color:white;
+  }
+
+  #courseh3{
+    color: black !important;
+  }
+  #courseP{
+    color: black !important;
+    font-size: small;
+  }

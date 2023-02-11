@@ -11,7 +11,11 @@ public class Student {
 
 	@Id
 	@Column(name = "id")
-	private int id;
+	private String id;
+	@Column(name="rollno")
+	private String rollno;
+	@Column(name="mob")
+	private String mob;
 	@Column(name = "name")
 	private String name;
 	@Column(name = "gender")
@@ -24,14 +28,6 @@ public class Student {
 	private String courselist;
 	@Column(name = "password")
 	private String password;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;
@@ -75,6 +71,31 @@ public class Student {
 
 	public String getPassword() {
 		return password;
+	}
+	
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getRollno() {
+		return rollno;
+	}
+
+	public void setRollno(String rollno) {
+		this.rollno = rollno;
+	}
+
+	public String getMob() {
+		return mob;
+	}
+
+	public void setMob(String mob) {
+		this.mob = mob;
 	}
 
 	public void setPassword(String password) {
