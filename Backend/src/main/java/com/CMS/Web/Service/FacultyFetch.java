@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.CMS.Web.Entities.Faculty;
 
-public interface FacultyFetch extends JpaRepository<Faculty, Integer> {
+public interface FacultyFetch extends JpaRepository<Faculty, String> {
 
 }

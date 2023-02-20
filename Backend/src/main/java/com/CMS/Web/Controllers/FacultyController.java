@@ -28,7 +28,7 @@ public class FacultyController {
 	}
 
 	@GetMapping(path = "faculties/{id}")
-	public Faculty getFaculty(@PathVariable Integer id) {
+	public Faculty getFaculty(@PathVariable String id) {
 		Faculty faculty = facService.getFaculty(id);
 		return faculty;
 	}
@@ -40,7 +40,7 @@ public class FacultyController {
 	}
 
 	@DeleteMapping(path = "faculties/{id}")
-	public void deleteFaculty(@PathVariable Integer id) {
+	public void deleteFaculty(@PathVariable String id) {
 		facService.deleteFaculty(id);
 	}
 

@@ -1,11 +1,11 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import "../styles/Login.css";
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const Login = ({ setShowLogin, setShowLogout, setShowChangepassword,setProfessorName,professorName,setProfessorEmail,professorEmail }) => {
+export const Login = ({ setShowLogin, setShowLogout, setShowChangepassword,setProfessorName,setProfessorEmail,setShowAdminLabel }) => {
 
   setShowLogout(false)
   setShowLogin(false)
@@ -26,12 +26,15 @@ export const Login = ({ setShowLogin, setShowLogout, setShowChangepassword,setPr
       if(res.password==enteredPassword){
         notify(false, "Congrats");
         if(selectedValue=="students"){
+          setShowAdminLabel(false);
         setTimeout(() => navigate("/studentDashboard", { state: { id: enteredUsername } }), 1000)
       }
       else{
+        setShowAdminLabel(false);
         getProfessorName(enteredUsername);
         setTimeout(() => navigate("/professor", { state: { id: enteredUsername } }), 1500)
-      }}
+      }
+    }
 
       else{
         notify(true, "Wrong Username or Password");
@@ -54,7 +57,25 @@ export const Login = ({ setShowLogin, setShowLogout, setShowChangepassword,setPr
   };
   const post = (e) => {
     e.preventDefault();
-    getUser(enteredUsername,enteredPassword);
+    if(selectedValue=="dean"){
+      if(enteredUsername=="admin" && enteredPassword=="admin123"){
+        setShowAdminLabel(true);
+        console.log("if")
+        toast.success("Success", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+        setTimeout(() => navigate("/admin"), 1500)
+      }
+      else{
+        toast.error("Wrong ID or Password", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      }
+    }
+    else{
+      console.log("else")
+    setShowAdminLabel(false);
+    getUser(enteredUsername,enteredPassword);}
   }
 
   window.onpopstate = () => {
@@ -71,6 +92,15 @@ export const Login = ({ setShowLogin, setShowLogout, setShowChangepassword,setPr
     .catch((err)=>console.log(err));
   }
 
+  const selectFun=(val)=>{
+    setSelectedValue(val)
+    // if(val=="dean")
+    //   setShowAdminLabel(true)
+    // else
+    // setShowAdminLabel(false)
+  }
+
+
   return (
     <div id="card">
       <div id="card-content">
@@ -79,7 +109,7 @@ export const Login = ({ setShowLogin, setShowLogout, setShowChangepassword,setPr
           <div className="underline-title"></div>
         </div>
         <div className="loginSelect">
-          <select name="format" id="format" onChange={(e)=>{setSelectedValue(e.target.value)}}>
+          <select name="format" id="format" onChange={(e)=>{selectFun(e.target.value)}}>
             <option value="students">Student</option>
             <option value="faculties">Professor</option>
             <option value="dean">Dean</option>

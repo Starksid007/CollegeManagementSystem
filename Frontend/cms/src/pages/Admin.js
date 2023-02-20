@@ -1,24 +1,27 @@
-import React, { useState, useEffect } from 'react'
-import "../styles/Professor.css";
+import React from 'react'
 import axios from 'axios';
 import bin from '../bin.png'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { useEffect,useState } from 'react';
+import '../styles/Admin.css';
+import Professor from './Professor';
 
-export const Professor = ({ setShowLogout, setShowLogin, setShowChangepassword, professorName, professorEmail,setShowAdminLabel }) => {
-
+export const Admin = ({setShowLogout,setShowLogin,setShowAdminLabel,showAdminLabel}) => {
   const navigate = useNavigate();
 
   setShowLogout(true)
   setShowLogin(false)
-  setShowChangepassword(true)
-  setShowAdminLabel(false);
+
+
   const [studentList, setStudentList] = useState([]);
   const [coursesList, setCoursesList] = useState([]);
   const [branchesList, setBranchesList] = useState([]);
+  const [professorsList, setProfessorsList] = useState([]);
   const [isFetched, setIsFetched] = useState(false);
   const [searchText, setSearchText] = useState("");
+  const [profSearchText, setProfSearchText] = useState("");
 
   const getCourses = () => {
     fetch("http://localhost:8080/courses")
@@ -37,6 +40,27 @@ export const Professor = ({ setShowLogout, setShowLogin, setShowChangepassword, 
       })
       .catch((err) => console.log(err));
   }
+
+  const getProfessors = (filterProfessor) => {
+    if(filterProfessor==""){
+    fetch("http://localhost:8080/faculties")
+      .then((res) => res.json())
+      .then((res) => {
+        setProfessorsList(res);
+      })
+      .catch((err) => console.log(err));
+  }
+  else{
+    fetch(`http://localhost:8080/faculties/${filterProfessor}`)
+      .then((res) => res.json())
+      .then((res) => {
+        setProfessorsList([res]);
+      })
+      .catch((err) => console.log(err));
+
+  }
+}
+
 
   const getStudents = (filterBranch) => {
 
@@ -83,12 +107,17 @@ export const Professor = ({ setShowLogout, setShowLogin, setShowChangepassword, 
   }
 
   useEffect(() => {
-    if (professorName.length == 0) {
-      navigate("/login");
+    console.log(showAdminLabel)
+    if(!showAdminLabel){
+      navigate("/login")
     }
-    getStudents("");
-    getCourses();
-    getBranches();
+    else{
+      getStudents("");
+      getCourses();
+      getBranches();
+      getProfessors("");
+    }
+
   }, []);
 
   if (!isFetched) {
@@ -101,17 +130,34 @@ export const Professor = ({ setShowLogout, setShowLogin, setShowChangepassword, 
     getStudents("");
   }
 
+  const deleteProfessor = (id) => {
+    console.log(id);
+    axios.delete(`http://localhost:8080/faculties/${id}`)
+    getProfessors("");
+  }
+
+
   const searchFun = () => {
 
     if (searchText.length != 0 && searchText.length == 11)
       getStudents(searchText);
     else {
-      console.log(searchText)
       toast.error("Enter Correct ID", {
         position: toast.POSITION.TOP_CENTER,
       });
     }
   }
+  const searchProfFun = () => {
+
+    if (profSearchText.length != 0)
+      getProfessors(profSearchText);
+    else {
+      toast.error("Enter Correct ID", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    }
+  }
+
 
   const clearFun = () => {
     setSearchText("");
@@ -119,8 +165,14 @@ export const Professor = ({ setShowLogout, setShowLogin, setShowChangepassword, 
 
   }
 
+  const clearProfFun = () => {
+    setProfSearchText("");
+    getProfessors("");
+  }
+
+
   window.onpopstate = () => {
-    navigate("/professor");
+    navigate("/admin");
   }
 
   return (
@@ -128,12 +180,13 @@ export const Professor = ({ setShowLogout, setShowLogin, setShowChangepassword, 
       <ul>
         <li className="active">Dashboard</li>
         <li onClick={() => { navigate("/addStudent") }}>Register Student</li>
-        <li onClick={() => { navigate("/courses") }}>Course Information</li>
+        <li onClick={() => { navigate("/addProfessor") }}>Register Professor</li>
+        <li onClick={() => { navigate("/courses", {state:{showAdminLabel:true}})}}>Course Information</li>
         <li onClick={() => { navigate("/branches") }}>Branch Information</li>
+        <li onClick={() => { navigate("/addBranch") }}>Manage Branches</li>
+        <li onClick={() => { navigate("/addCourse") }}>Manage Courses</li>
       </ul>
       <div className="rightContainer" id="rightContainer">
-        <h5 id="profName">Hi, {professorName}</h5>
-        <h5 id="profEmail">{professorEmail}</h5>
         <div className='profRow'>
           <div className='profCard'>
             <h3 className='cardh3'>{studentList.length}</h3>
@@ -147,10 +200,16 @@ export const Professor = ({ setShowLogout, setShowLogin, setShowChangepassword, 
             <h3 className='cardh3'>{branchesList.length}</h3>
             <p>Branches</p>
           </div>
+          <div className='profCard'>
+            <h3 className='cardh3'>{professorsList.length}</h3>
+            <p>Professors</p>
+          </div>
 
         </div>
+
+        <div className='filterDiv'>
         <div className='filterSearch'>
-          <input type="text" placeholder='Serach by ID' value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+          <input type="text" placeholder='Serach Student ID' value={searchText} onChange={(e) => setSearchText(e.target.value)} />
           <button className='searchBtn' onClick={searchFun}>Search</button>
           <button className='clearBtn' onClick={clearFun}>Clear</button>
           <select className='selectBranchProf' name="branch" onChange={(e) => { getStudents(e.target.value) }}>
@@ -162,18 +221,39 @@ export const Professor = ({ setShowLogout, setShowLogin, setShowChangepassword, 
             }
           </select>
         </div>
+        <div className='professorFilter'>
+          <input type="text" placeholder='Serach Professor ID' value={profSearchText} onChange={(e) => setProfSearchText(e.target.value)} />
+          <button className='searchBtn' onClick={searchProfFun}>Search</button>
+          <button className='clearBtn' onClick={clearProfFun} >Clear</button>
+        </div>
+        </div>
 
-        <div className="listcontainer">
+        <div className='allListContainer'>
+        <div className="studentListContainer">
           {studentList.map(student => (
-            <div className="listcard">
+            <div className="listcardAdmin">
               <h5 id="h5id">{student.id}</h5>
               <h5 id="h5name">{student.name}</h5>
               <h5 id="h5branch">{student.branch}</h5>
-              <h5 id="h5email">{student.email}</h5>
-              <h5 id="h5mob">{student.mob}</h5>
-              <img src={bin} className="deleteIcon" width="23px" height="23px" onClick={() => deleteStudent(student.id)} />
+              <img src={bin} className="deleteIconAdmin" width="23px" height="23px" onClick={() => deleteStudent(student.id)} />
             </div>
           ))}
+        </div>
+
+            <div className='middleBorder'>
+
+            </div>
+
+        <div className="professorListContainer">
+          {professorsList.map(professor => (
+            <div className="listcardAdmin">
+              <h5 id="h5id">{professor.id}</h5>
+              <h5 id="h5name">{professor.name}</h5>
+              <h5 id="h5branch">{professor.branch}</h5>
+              <img src={bin} className="deleteIconAdmin" width="23px" height="23px" onClick={() => deleteProfessor(professor.id)}/>
+            </div>
+          ))}
+        </div>
         </div>
       </div>
       <ToastContainer autoClose={1000} />
@@ -181,4 +261,4 @@ export const Professor = ({ setShowLogout, setShowLogin, setShowChangepassword, 
   )
 }
 
-export default Professor;
+export default Admin;

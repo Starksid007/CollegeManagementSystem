@@ -39,7 +39,7 @@ public class BranchController {
 		return branch;
 	}
 
-	@DeleteMapping(path = "branches/{id}")
+	@DeleteMapping(path = "branches/{code}")
 	public void deleteBranch(@PathVariable String code) {
 		braService.deleteBranch(code);
 	}

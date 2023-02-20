@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-import Professor from '../pages/Professor'
 
 const divStyle = {
   width: "100%",
@@ -33,6 +32,14 @@ const h3Style2 = {
   fontWeight: "500",
   color: "white"
 }
+const h3StyleAdmin = {
+  margin: "12px 45px 0px 0px",
+  float: "right",
+  align: "right",
+  fontWeight: "500",
+  color: "white"
+}
+
 const h6Style = {
   margin:"8px 0px 0px 2px",
   float: "right",
@@ -41,7 +48,7 @@ const h6Style = {
   color:"black"
 }
 
-export const Navbar = ({showLogin,setShowLogin,showLogout,showChangePassword,ProfessorName,showProfessorName}) => {
+export const Navbar = ({showLogin,setShowLogin,showLogout,showChangePassword,showAdminLabel}) => {
   setShowLogin(true)
   const navigate = useNavigate();
   return (
@@ -50,6 +57,7 @@ export const Navbar = ({showLogin,setShowLogin,showLogout,showChangePassword,Pro
       {showLogin && <h3 style={h3Style} onClick={() => {navigate("/login")}}>Login</h3>}
       {showLogout && <h3 style={h3Style} onClick={() => {navigate("/login")}}>Logout</h3>}
       {showChangePassword && <h3 style={h3Style2} onClick={() => {}}>Change Password<h6 style={h6Style}> soon</h6></h3>}
+      {showAdminLabel && <h3 style={h3StyleAdmin}>ADMIN</h3>}
     </div>
   )
 }

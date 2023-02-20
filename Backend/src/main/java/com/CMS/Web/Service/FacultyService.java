@@ -24,11 +24,11 @@ public class FacultyService {
 		facFetch.save(faculty);
 	}
 
-	public Faculty getFaculty(Integer id) {
+	public Faculty getFaculty(String id) {
 		return facFetch.findById(id).get();
 	}
 
-	public void deleteFaculty(Integer id) {
+	public void deleteFaculty(String id) {
 		facFetch.deleteById(id);
 	}
 

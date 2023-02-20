@@ -11,7 +11,7 @@ public class Faculty {
 
 	@Id
 	@Column(name = "id")
-	private int id;
+	private String id;
 	@Column(name = "name")
 	private String name;
 	@Column(name = "email")
@@ -25,11 +25,12 @@ public class Faculty {
 	@Column(name = "password")
 	private String password;
 
-	public int getId() {
+
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

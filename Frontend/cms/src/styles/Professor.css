@@ -1,133 +1,148 @@
 ul {
-    list-style-type: none;
-    margin: 10px;
-    margin-top: 10px;
-    padding: 0;
-    width: 20%;
-    background-color: #f1f1f1;
-    position: fixed;
-    height: 100%;
-    overflow: auto;
-  }
-  
-#profName{
+  list-style-type: none;
+  margin: 10px;
+  margin-top: 10px;
+  padding: 0;
+  width: 20%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+#profName {
   margin-left: 82%;
 }
 
-  li{
-    display: block;
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
-  }
-  
-  li.active {
-    background-color: #04AA6D;
-    color: white;
-  }
-  
-  li:hover:not(.active) {
-    background-color: #555;
-    color: white;
-  }
+#profEmail {
+  margin-left: 82%;
+  color: grey;
+  font-weight: 300;
+}
 
-  #rightContainer{
-    margin-left:22%;
-    margin-top: 10px;
-    padding:1px 16px;
-  }
+li {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
 
-  .profRow {
-    display: flex;
-    width: 60%;
-    margin: 10px 5px;
-  }
-  
-  .profCard {
-    background: #04AA6D ;
-    margin: 0 25px;
-    padding-top:10px ;
-    width: 200px;
-    color: white;
-    text-align: center;
-  }
+li.active {
+  background-color: #04AA6D;
+  color: white;
+}
 
-  p{
-    margin-top: -10px;
-  }
+li:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
 
-  .cardh3{
-    margin-top: 0px;
-  }
+#rightContainer {
+  margin-left: 22%;
+  margin-top: 10px;
+  padding: 1px 16px;
+}
 
-  .listcard{
-    display: flex;
-    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
-    padding:15px 0px 15px 10px;
-    border-color:#04AA6D;
-    /* border:solid;
+.profRow {
+  display: flex;
+  width: 60%;
+  margin: 10px 5px;
+}
+
+.profCard {
+  background: #04AA6D;
+  margin: 0 25px;
+  padding-top: 10px;
+  width: 200px;
+  color: white;
+  text-align: center;
+}
+
+p {
+  margin-top: -10px;
+}
+
+.cardh3 {
+  margin-top: 0px;
+}
+
+.listcard {
+  display: flex;
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
+  padding: 15px 0px 15px 10px;
+  border-color: #04AA6D;
+  /* border:solid;
     border-width: 1px; */
-    margin-bottom: 10px;
-  }
-
-  h5{
-    margin:0px 0px 0px 0px;
-  }
-#h5id{
-    width: 120px;
-}
-#h5name{
-    width: 160px;
-}
-#h5branch{
-    width: 80px;
-}
-#h5email{
-    width: 260px;
-}
-#h5mob{
-    width: 150px;
+  margin-bottom: 10px;
 }
 
-.listcontainer{
-    margin-top: 20px;
-    height: 300px;
-    overflow-y: scroll;
+h5 {
+  margin: 0px 0px 0px 0px;
+}
 
-  }
+#h5id {
+  width: 120px;
+}
 
-.deleteIcon{
-    margin-left: 80px;
+#h5name {
+  width: 160px;
+}
+
+#h5branch {
+  width: 80px;
+}
+
+#h5email {
+  width: 260px;
+}
+
+#h5mob {
+  width: 150px;
+}
+
+.listcontainer {
+  margin-top: 20px;
+  height: 300px;
+  overflow-y: scroll;
+
+}
+
+.deleteIcon {
+  margin-left: 80px;
 }
 
 .deleteIcon:hover {
   transform: scale(1.5);
 }
 
-.selectBranchProf{
+.selectBranchProf {
   background-color: lightgray;
   color: black;
   padding: 5px;
 }
 
-.searchBtn{
-  margin:0px 5px 0px 5px;
+.searchBtn {
+  margin: 0px 5px 0px 5px;
 }
-.clearBtn{
+
+.clearBtn {
   margin-right: 40px;
 }
 
-p{
+p {
   text-decoration: none;
   color: white;
 }
 
-.filterSearch{
+.filterSearch {
   margin-top: 30px;
 }
 
-h3{
-  color: white !important ;
-  text-decoration: none !important ;
+h3 {
+  color: white !important;
+  text-decoration: none !important;
   font-size: larger !important;
+}
+#heading{
+  margin-left: 30%  ;
 }
