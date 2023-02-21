@@ -1,3 +1,29 @@
+/* .stuContainer{
+  margin-left: 20%;
+  margin-top: 5%;
+  width: 70%;
+}
+
+
+.stuFirst{
+  display: flex;
+}
+
+.updateBtn{
+  height: 30px;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
 .one h1 {
   text-align: center;
   text-transform: uppercase;
@@ -31,7 +57,7 @@
 
 table {
   width: 500px;
-  border-collapse: collapse;
+  box-shadow: 0 4px 9px 4px rgba(0, 0, 0, 0.2); 
 }
 
 th {
@@ -42,9 +68,13 @@ th {
 td,
 th {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 0px solid #ccc;
   text-align: left;
   font-size: 18px;
+  font-weight: 400 !important;
+}
+th{
+  color: grey;
 }
 
 td {
@@ -59,11 +89,12 @@ td {
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 9px 4px rgba(0, 0, 0, 0.2);
   max-width: auto;
   padding: 10px 25px 10px 25px;
-  margin: 50px 30px 0px 200px;
+  margin:24px 30px 0px 200px;
   text-align: center;
+  border-radius: 15%;
 }
 
 .title {
@@ -83,9 +114,23 @@ a {
   display: flex;
   align-items: center;
   margin: 5px 0px 0px 100px;
+  
 }
 
 #idtag {
   color: black;
   margin-top: -15px;
+}
+
+#nameHeading{
+  color: black !important;
+  margin-top: 4px;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+img{
+  box-shadow: 2px 2px 16px 8px rgba(0, 0, 0, 0.2) ;
+  border-radius: 100px;
+  padding: 2px;
 }

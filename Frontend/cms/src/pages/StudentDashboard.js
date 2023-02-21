@@ -35,8 +35,24 @@ export const StudentDashboard = ({ setShowLogout, setShowLogin, setShowChangepas
     return <></>
   }
 
+  let stuID=studentInfo.id
+  stuID=stuID.slice(3,11)
+  let dd=stuID.slice(0,2)
+  let mm=stuID.slice(2,4)
+  let yyyy=stuID.slice(4,8)
+  let finalDOB=`${dd}/${mm}/${yyyy}`
   return (
     <div className="container">
+      {/* <div className="stuContainer">
+        <div className='stuFirst'>
+          <img src={profile} width="50px" height="50px"/>
+          <div className='nameAndID'>
+          <h2>{studentInfo.name}</h2>
+          <h4>{studentInfo.id}</h4>
+          </div>
+          <button className='updateBtn'>Update Details</button>
+        </div>
+      </div> */}
       <div class="one">
         <h1>Student Details</h1>
       </div>
@@ -44,7 +60,7 @@ export const StudentDashboard = ({ setShowLogout, setShowLogin, setShowChangepas
       <div className='main'>
         <div class="card">
           <img src={profile} width="100px" height="100px"></img>
-          <h3>{studentInfo.name}</h3>
+          <h2 id="nameHeading">{studentInfo.name}</h2>
           <p class="title">{studentInfo.branch}</p>
           <p id="idtag">ID: {studentInfo.id}</p>
         </div>
@@ -54,6 +70,10 @@ export const StudentDashboard = ({ setShowLogout, setShowLogin, setShowChangepas
             <tr>
               <th>Roll Number</th>
               <td>{studentInfo.rollno}</td>
+            </tr>
+            <tr>
+              <th>DOB</th>
+              <td>{finalDOB}</td>
             </tr>
             <tr>
               <th>Email</th>
