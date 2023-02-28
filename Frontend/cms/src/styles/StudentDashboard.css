@@ -1,7 +1,50 @@
-/* .stuContainer{
-  margin-left: 20%;
-  margin-top: 5%;
+.mainStuContainer{
+  background-color: #2ec06f;
+  width: 100%;
+  height: 456px;
+  padding-top: 5px;
+  border-top-right-radius: 10%;
+  border-top-left-radius: 10%;
+
+}
+#dashboardHeading{
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  font-size: large;
+}
+
+#dashboardHeading:before {
+  width: 28px;
+  height: 5px;
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  margin-left: -14px;
+  background-color: #2ec06f;
+}
+
+#dashboardHeading:after {
+  width: 100px;
+  height: 1px;
+  display: block;
+  content: "";
+  position: relative;
+  margin-top: 15px;
+  left: 50%;
+  margin-left: -50px;
+  background-color: #2ec06f;
+}
+
+.stuContainer{
+  margin-left: 15%;
+  margin-top: 1%;
   width: 70%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: aliceblue;
+  padding:0px 20px 0px 20px;  
 }
 
 
@@ -11,7 +54,225 @@
 
 .updateBtn{
   height: 30px;
-} */
+  padding:5px;
+  margin-left: 105px;
+  margin-top: 20px;
+  background-color:#2ec06f;
+  border: none;
+  border-radius: 4%;
+  border-color: #2ec06f;
+  color: white;
+  font-weight: 500;
+}
+
+.nameAndID{
+  margin-left: 20px;
+}
+
+img{
+  margin-top: 15px;
+}
+
+#idLabel{
+  margin-top: -15px;
+  color:grey;
+  font-weight: 500;
+}
+
+.stuSecond{
+  margin-top: -20px;
+  height: 250px;
+  width: 150px;
+}
+
+#courseStuLabel{
+  color: gray !important;
+  margin-left: -60px;
+  font-weight: 900 !important;
+  text-decoration: underline !important;
+}
+
+.allCoursesDiv{
+  height: 180px;
+  margin-top: -20px;
+  overflow-y:auto;
+  overscroll-behavior-y:auto;
+}
+.stuCourses{
+  color: black;
+  font-weight: 500;
+}
+
+#stuVerLine{
+  background-color: black;
+  margin-left: 25px;
+  margin-right: 15px;
+  width: 1px;
+  height: 200px
+}
+
+.belowStuContainer{
+  display: flex;
+}
+
+
+.StuCardsContainer{
+  margin-left: 20px;
+}
+
+.infoCardStu{
+  margin-top: 10px;
+  box-shadow: 0 4px 9px 4px rgba(0, 0, 0, 0.2); 
+  background-color: #2ec06f;
+  color: white !important;
+  padding:5px 25px 1px 25px;
+}
+
+
+#cardHeadStu{
+  font-weight: 100;
+}
+
+#cardContentStu{
+  font-weight: 800;
+  font-size:x-large !important;
+  margin-top: 4px;
+}
+
+.phoneAndMail{
+  display: flex;
+  margin-top: 50px;
+  margin-left: 50px;
+  color:grey
+}
+
+#mobileImg{
+  margin-right: 10px; 
+}
+
+#mailImg{
+  margin-right: 10px;
+}
+
+#genderImg{
+  margin-left: 15px;
+}
+
+#mailDiv{
+  margin-left: 20px;
+}
+
+#mobDiv{
+  margin-top: 5px;
+}
+
+#acadLabel{
+  color: black !important;
+  font-weight: 200 !important;
+}
+
+.belowRightStuContainer{
+  margin-top: -2px;
+  margin-left: 40px;
+  display: flex;
+}
+
+.belowRightStuContainerFirst{
+margin-top: -10px;
+
+}
+
+#leftHeading{
+  color:grey;
+  font-weight: 400;
+}
+
+
+
+.attendaceMainContainer{
+  margin-top: -20px;
+  margin-left: 110px;
+}
+
+
+.circle-wrap {
+  margin: 40px auto;
+  width: 150px;
+  height: 150px;
+  background: #fefcff;
+  border-radius: 50%;
+  border: 1px solid #cdcbd0;
+}
+
+.circle-wrap .circle .mask,
+.circle-wrap .circle .fill {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circle-wrap .circle .mask {
+  clip: rect(0px, 150px, 150px, 75px);
+}
+
+.circle-wrap .inside-circle {
+  width: 122px;
+  height: 122px;
+  border-radius: 50%;
+  background: #d2eaf1;
+  line-height: 120px;
+  text-align: center;
+  margin-top: 14px;
+  margin-left: 14px;
+  color: #1e51dc;
+  position: absolute;
+  z-index: 100;
+  font-weight: 700;
+  font-size: 2em;
+}
+
+/* color animation */
+
+/* 3rd progress bar */
+.mask .fill {
+  clip: rect(0px, 75px, 150px, 0px);
+  background-color: #227ded;
+}
+
+.mask.full,
+.circle .fill {
+  animation: fill ease-in-out 3s;
+  transform: rotate(135deg);
+}
+
+@keyframes fill{
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(135deg);
+  }
+}
+
+#attendanceLabel{
+margin-top: -30px;
+margin-left: 45px;
+color: grey;
+font-weight: 400;
+}
+
+.editphoneAndMail{
+  margin-left: 50px;
+}
+
+#mailEditInput{
+  width: 200px;
+}
+
+#editmailDiv{
+  margin-left: -3px;
+}
 
 
 
@@ -19,12 +280,7 @@
 
 
 
-
-
-
-
-
-.one h1 {
+/* .one h1 {
   text-align: center;
   text-transform: uppercase;
   padding-bottom: 5px;
@@ -133,4 +389,4 @@ img{
   box-shadow: 2px 2px 16px 8px rgba(0, 0, 0, 0.2) ;
   border-radius: 100px;
   padding: 2px;
-}
+} */
